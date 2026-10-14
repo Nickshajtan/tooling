@@ -1,0 +1,33 @@
+{
+  "sites": {
+    "source": "csv",
+    "options": { "csv": { "path": "./sites.local.csv", "meta": [] } },
+    "filter": "public",
+    "siteIds": [],
+    "limit": 0
+  },
+  "scan": {
+    "paths": ["/"],
+    "concurrency": 3,
+    "delayMs": 300,
+    "extensions": ["retry"],
+    "options": { "retry": { "attempts": 2, "backoffMs": 500 } }
+  },
+  "http": {
+    "timeoutMs": 15000,
+    "maxBytes": 5242880,
+    "maxRedirects": 10,
+    "userAgent": "cet-site-scan-engine/0.2",
+    "headers": {
+      "cache-control": "no-cache",
+      "accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8"
+    }
+  },
+  "output": {
+    "dir": "./reports",
+    "reporters": ["results-csv", "findings-csv", "summary-md"],
+    "options": {}
+  },
+  "failOn": null,
+  "adapters": {}
+}
