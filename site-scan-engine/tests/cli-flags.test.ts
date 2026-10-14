@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
+import { resolve } from 'node:path';
 import { DEFAULTS, mergeConfig } from '../src/index.js';
 import { COERCERS } from '../src/cli/args/coercers.js';
 import { CommandName, FlagType } from '../src/cli/args/flag-spec.js';
@@ -96,7 +97,7 @@ test('flags map to config generically and layer under the right paths', () => {
 test('--sites / --url / --source / --source-opt / --opt build the source and adapter config', () => {
     const csv = mergeConfig(configFromFlags(parseArgs(['--sites', 'a.csv', '--source-opt', 'meta=region'], CommandName.SCAN).flags, 'csv', '/work'));
     assert.equal(csv.sites.source, 'csv');
-    assert.equal((csv.sites.options.csv as { path: string }).path, '/work/a.csv', 'relative to the CLI cwd, not process.cwd()');
+    assert.equal((csv.sites.options.csv as { path: string }).path, resolve('/work', 'a.csv'), 'relative to the CLI cwd, not process.cwd()');
     assert.equal((csv.sites.options.csv as { meta: unknown }).meta, 'region');
 
     const url = mergeConfig(configFromFlags(parseArgs(['--url', 'https://a.test/'], CommandName.SCAN).flags, 'csv', '/work'));

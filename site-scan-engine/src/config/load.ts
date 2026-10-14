@@ -22,7 +22,7 @@ export function loadConfigFile(file: string): LoadedConfigFile {
     try {
         parsed = JSON.parse(readFileSync(path, 'utf8'));
     } catch (err) {
-        throw new Error(`Cannot read config ${path}: ${errorMessage(err)}`);
+        throw new Error(`Cannot read config ${path}: ${errorMessage(err)}`, { cause: err });
     }
     if (!isRecord(parsed)) {
         throw new Error(`Config ${path} must contain a JSON object`);

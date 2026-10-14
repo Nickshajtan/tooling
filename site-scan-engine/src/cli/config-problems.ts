@@ -2,7 +2,6 @@ import { describeOrigin, leafPaths, originOf } from '../config/origins.js';
 import { DEFAULTS } from '../config/defaults.js';
 import type { ScanConfig } from '../config/types.js';
 import { didYouMean } from '../shared/did-you-mean.js';
-import { isRecord } from '../shared/is-record.js';
 import { valueAt } from '../shared/value-at.js';
 import { CliError, ErrorCode, type Problem } from './errors.js';
 

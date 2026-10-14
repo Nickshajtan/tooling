@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { basename, join } from 'node:path';
 import { test } from 'node:test';
 import { defineExtension, ErrorCode } from '../src/index.js';
 import { PeriodicGate, RedrawGate, renderProgress } from '../src/cli/ui/progress.js';
@@ -152,7 +152,7 @@ test('stdout contract: only the written files and, last, the run location', asyn
     const { stdout, stderr } = await cli(['scan', '--sites', sitesCsv, '--out', out]);
     const lines = stdout.buf.trim().split('\n');
     assert.equal(lines.at(-1), out);
-    assert.deepEqual(lines.slice(0, -1).map((l) => l.split('/').pop()), ['results.csv', 'findings.csv', 'summary.md']);
+    assert.deepEqual(lines.slice(0, -1).map((l) => basename(l)), ['results.csv', 'findings.csv', 'summary.md']);
     assert.ok(stderr.buf.length > 0);
 });
 
@@ -200,6 +200,7 @@ test('warnings: the first 5 inline, the rest only counted in the summary; verbos
 
 test('TTY progress redraws one live line; non-TTY prints plain periodic lines', async () => {
     const tty = await cli(['scan', '--sites', sitesCsv, '--filter', 'all', '--out', runDir()], { tty: true });
+    // eslint-disable-next-line no-control-regex -- Verify the terminal's ANSI erase-line sequence.
     assert.match(tty.stderr.buf, /\r\u001B\[2K/);
     assert.match(tty.stderr.buf, /▕█+░*▏ · \d+% · \d+\/4/);
 

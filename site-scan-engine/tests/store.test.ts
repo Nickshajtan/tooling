@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { appendFileSync, existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { test } from 'node:test';
 import { fsStore } from '../src/index.js';
 import type { RunStore } from '../src/index.js';
@@ -63,11 +63,11 @@ test('fs store source: records() goes through a read stream, never readFileSync 
 
 test('fs store: run locations — bare name under dir, path relative to baseDir, absolute as is', () => {
     const open = (runId: string) => fsRunLocation({ runId, options: { dir: 'reports' }, baseDir: '/work' });
-    assert.equal(open('seo-20260101-000000'), '/work/reports/seo-20260101-000000');
-    assert.equal(open('./runs/a'), '/work/runs/a');
-    assert.equal(open('runs/a'), '/work/runs/a');
+    assert.equal(open('seo-20260101-000000'), resolve('/work', 'reports', 'seo-20260101-000000'));
+    assert.equal(open('./runs/a'), resolve('/work', 'runs', 'a'));
+    assert.equal(open('runs/a'), resolve('/work', 'runs', 'a'));
     assert.equal(open('/abs/run'), '/abs/run');
-    assert.equal(fsRunLocation({ runId: 'run', options: {}, baseDir: '/work' }), '/work/run', 'a user-supplied bare name is relative to the cwd, as before 0.2');
+    assert.equal(fsRunLocation({ runId: 'run', options: {}, baseDir: '/work' }), resolve('/work', 'run'), 'a user-supplied bare name is relative to the cwd, as before 0.2');
 });
 
 test('fs store: appending to a run with a truncated tail repairs it first', async () => {

@@ -20,3 +20,4 @@
 *.pdf binary
 *.zip binary
 *.7z binary
+*.ts text eol=lf

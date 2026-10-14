@@ -5,7 +5,7 @@
  */
 
 import type { ScanConfig } from '../config/types.js';
-import { assertAdapter, finding, type Adapter, type AdapterResult, type Finding } from '../contract/adapter.js';
+import { assertAdapter, type Adapter, type AdapterResult, type Finding } from '../contract/adapter.js';
 import { ENGINE_ADAPTER_ID } from '../contract/engine-code.js';
 import type { EngineEvents, EventListener } from '../contract/events.js';
 import type { Extension } from '../contract/extension.js';

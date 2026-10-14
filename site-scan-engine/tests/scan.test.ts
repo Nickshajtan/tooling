@@ -240,6 +240,7 @@ test('events: payloads are frozen, target:end fires on failure, a throwing liste
         engine.on(name, (payload) => { names.push(name); frozen.push(Object.isFrozen(payload)); });
     }
     engine.on('target:start', () => { throw new Error('listener bug'); });
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises -- Exercise rejection handling for an intentionally async listener.
     engine.on('target:end', async () => { throw new Error('async listener bug'); });
     engine.on('warning', (w) => warnings.push(`${w.source}: ${w.message}`));
 
