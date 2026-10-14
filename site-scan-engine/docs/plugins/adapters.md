@@ -8,7 +8,7 @@ Related: [architecture](../architecture.md) · [types](../types.md) · [extensio
 ## The contract
 
 ```ts
-import { defineAdapter, finding, Severity } from '@cet/site-scan-engine';
+import { defineAdapter, finding, Severity } from '@hcc/site-scan-engine';
 
 export const titleAdapter = defineAdapter({
     id: 'title',                         // kebab-case; prefix of your finding codes and of your CSV columns

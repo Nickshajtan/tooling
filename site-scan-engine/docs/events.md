@@ -36,7 +36,7 @@ An extension emits `ext:<its-id>:<name>` with `api.emit(name, payload)` and decl
 `EngineEvents`:
 
 ```ts
-declare module '@cet/site-scan-engine' {
+declare module '@hcc/site-scan-engine' {
     interface EngineEvents {
         'ext:retry:attempt': { url: string; attempt: number; reason: string; waitMs: number };
     }

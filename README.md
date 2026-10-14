@@ -24,7 +24,7 @@ Run commands from the repository root:
 | `npm run build` | Build workspace packages |
 | `npm run check` | Run all checks, also used by CI |
 
-Target one package with `npm run build -w @cet/site-scan-engine` (or substitute
+Target one package with `npm run build -w @hcc/site-scan-engine` (or substitute
 `typecheck` or `test`). ESLint runs centrally from the root.
 
 ESLint uses the recommended JavaScript and TypeScript rules, with additional

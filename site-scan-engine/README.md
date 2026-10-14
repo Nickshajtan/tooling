@@ -1,4 +1,4 @@
-# @cet/site-scan-engine
+# @hcc/site-scan-engine
 
 A Node scan engine for multisite networks: fetch every site once, run consumer-provided checks (adapters), write reports.
 It ships **no adapters** — the engine is thin and its value is a stable, typed extension API that scan tools (`jsonld-scan`,
@@ -14,11 +14,11 @@ From the repository root (the package is an npm workspace):
 
 ```bash
 npm install                                   # installs workspaces and runs `prepare` → builds dist/
-npm run build -w @cet/site-scan-engine        # rebuild after editing src/
-npm test -w @cet/site-scan-engine             # typecheck + 170+ tests, offline
+npm run build -w @hcc/site-scan-engine        # rebuild after editing src/
+npm test -w @hcc/site-scan-engine             # typecheck + 170+ tests, offline
 ```
 
-A consumer depends on it with `npm install @cet/site-scan-engine -w <module-path>` from the root, or with a
+A consumer depends on it with `npm install @hcc/site-scan-engine -w <module-path>` from the root, or with a
 `file:` dependency in a standalone tool's own `package.json`. Both run `prepare`, which builds `dist/` (verified 2026-10-14).
 After editing `src/`, rebuild with the command above: the consumer links the package, so it sees the new `dist/` at once.
 
@@ -26,7 +26,7 @@ After editing `src/`, rebuild with the command above: the consumer links the pac
 
 ```ts
 #!/usr/bin/env node
-import { defineAdapter, finding, runCli, Severity } from '@cet/site-scan-engine';
+import { defineAdapter, finding, runCli, Severity } from '@hcc/site-scan-engine';
 
 const title = defineAdapter({
     id: 'title', description: 'Checks <title>', engine: '^0.2.0', columns: ['title'],

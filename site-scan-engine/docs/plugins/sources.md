@@ -27,7 +27,7 @@ interface SiteSource<O> {
 ```ts
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { defineSource } from '@cet/site-scan-engine';
+import { defineSource } from '@hcc/site-scan-engine';
 
 const run = promisify(execFile);
 

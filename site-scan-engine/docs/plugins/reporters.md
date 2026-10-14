@@ -24,7 +24,7 @@ revisit only if a report approaches ~100 MB.
 ## Example: a JSON reporter (render mode)
 
 ```ts
-import { defineReporter } from '@cet/site-scan-engine';
+import { defineReporter } from '@hcc/site-scan-engine';
 
 export const jsonReporter = defineReporter({
     id: 'json',

@@ -75,7 +75,7 @@ Extensions never read `process.env` themselves: the tool's bin reads it and puts
 ```ts
 import type { Page } from 'playwright';
 
-declare module '@cet/site-scan-engine' {
+declare module '@hcc/site-scan-engine' {
     interface TargetState { browserPage?: Page }
 }
 

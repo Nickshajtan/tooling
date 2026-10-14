@@ -11,7 +11,7 @@ export function packageRoot(): string {
     while (!existsSync(join(dir, 'package.json'))) {
         const parent = dirname(dir);
         if (parent === dir) {
-            throw new Error('Cannot locate @cet/site-scan-engine package.json');
+            throw new Error('Cannot locate @hcc/site-scan-engine package.json');
         }
         dir = parent;
     }

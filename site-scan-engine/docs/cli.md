@@ -217,7 +217,7 @@ On for a TTY. `NO_COLOR=1` or `--no-color` turns it off; `FORCE_COLOR=1` turns i
 
 ```ts
 #!/usr/bin/env node
-import { runCli } from '@cet/site-scan-engine';
+import { runCli } from '@hcc/site-scan-engine';
 import { seoAdapter } from './adapters/seo.js';
 
 process.exitCode = await runCli({

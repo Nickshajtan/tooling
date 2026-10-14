@@ -1,5 +1,5 @@
 {
-  "name": "@cet/site-scan-engine",
+  "name": "@hcc/site-scan-engine",
   "version": "0.2.0",
   "private": true,
   "description": "Pluggable multisite scan engine: fetch every site once, run consumer-provided adapters, write CSV/Markdown reports. Ships no adapters.",

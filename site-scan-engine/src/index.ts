@@ -1,5 +1,5 @@
 /**
- * Public API of @cet/site-scan-engine. This is the only entry point consumers import.
+ * Public API of @hcc/site-scan-engine. This is the only entry point consumers import.
  * Grouped by who uses it; see README.md "Responsibilities".
  */
 
