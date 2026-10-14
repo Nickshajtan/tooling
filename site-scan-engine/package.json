@@ -1,0 +1,38 @@
+{
+  "name": "@hcc/site-scan-engine",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Pluggable multisite scan engine: fetch every site once, run consumer-provided adapters, write CSV/Markdown reports. Ships no adapters.",
+  "type": "module",
+  "license": "GPL-2.0-or-later",
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "scan.config.example.json",
+    "README.md",
+    "docs"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node -e \"require('node:fs').rmSync('.test-build',{recursive:true,force:true})\" && tsc -p tsconfig.test.json && node --test \".test-build/tests/**/*.test.js\"",
+    "prepare": "npm run build",
+    "docs:cli": "npm run build && node scripts/gen-cli-docs.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "kleur": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^5.9.3"
+  }
+}

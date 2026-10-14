@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.test-build/
+coverage/
+*.tsbuildinfo
+*.log
+.env
+.env.*
+!.env.example
+*.local.csv
+reports/
+.DS_Store
+Thumbs.db

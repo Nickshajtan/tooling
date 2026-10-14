@@ -1,0 +1,5 @@
+blog_id,url,public,archived,spam,deleted
+1,https://a.test/,1,0,0,0
+801,https://b.test/,1,0,0,0
+5,https://c.test/,0,0,0,0
+9,https://d.test/,1,1,0,0

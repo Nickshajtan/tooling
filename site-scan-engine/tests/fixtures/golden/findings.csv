@@ -1,0 +1,5 @@
+"site_id","url","path","adapter","code","severity","message","detail"
+"2","https://s2.test/","/","title","title.a","warning","msg title.a","d"
+"10","https://s10.test/","/","title","title.c","warning","msg title.c","d"
+"801","https://s801.test/","/","title","title.a","error","msg title.a","d"
+"801","https://s801.test/","/","title","title.b","error","msg title.b","d"
